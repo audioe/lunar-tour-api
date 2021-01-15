@@ -49,8 +49,12 @@ provider:
         - dynamodb:ListStream
 
       Resource:
-        - "Fn::GetAtt": [ListingsDB, Arn]
-        - "Fn::GetAtt": [BookingsDB, Arn]
+        - "Fn::GetAtt":
+          - [ListingsDB]
+          - Arn
+        - "Fn::GetAtt":
+          - [BookingsDB]
+          - Arn
 
 functions:
   graphql:
